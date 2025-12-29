@@ -1,0 +1,25 @@
+<div *ngIf="!audioPret" class="overlay">
+    Chargement en cours
+</div>
+
+<div *ngIf="audioPret">
+    <div class="scene-container">
+        <div class="dancefloor">
+            <div *ngFor="let c of orchestre" class="chibi-sprite" [style.background-color]="c.couleur">
+                <span class="emoji">{{ c.emoji }}</span>
+                <span class="label">{{ c.nom }}</span>
+            </div>
+        </div>
+        <hr>
+        <div class="selection-area">
+            <h3>Recrute tes Chibis</h3>
+            <div class="grid">
+                <div *ngFor="let c of catalogue" (click)="toggleChibi(c)" class="card"
+                    [class.active]="orchestre.includes(c)">
+                    {{ c.emoji }}
+                    <small>{{ c.nom }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
