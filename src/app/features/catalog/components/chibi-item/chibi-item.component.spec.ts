@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SceneComponent } from './sceneComponent';
+import { ChibiItemComponent } from './chibi-item.component';
 
-describe('Scene', () => {
-  let component: SceneComponent;
-  let fixture: ComponentFixture<SceneComponent>;
+describe('ChibiItemComponent', () => {
+  let component: ChibiItemComponent;
+  let fixture: ComponentFixture<ChibiItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SceneComponent]
+      imports: [ChibiItemComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SceneComponent);
+    fixture = TestBed.createComponent(ChibiItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

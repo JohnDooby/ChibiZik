@@ -1,0 +1,14 @@
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  height: 150px;
+  overflow-x: auto;
+  border-top: 1px solid #ccc;
+
+  .chibi-wrapper {
+    flex: 0 0 auto;
+  }
+}

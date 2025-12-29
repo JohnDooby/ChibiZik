@@ -1,0 +1,7 @@
+.scene-container {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 150px); // laisse de la place pour le catalogue
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
