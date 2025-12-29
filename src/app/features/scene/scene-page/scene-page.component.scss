@@ -1,7 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 .scene-container {
+  flex: 1;  // prend tout l’espace restant
   position: relative;
-  width: 100%;
-  height: calc(100vh - 150px); // laisse de la place pour le catalogue
   background-color: #f0f0f0;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.catalog-container {
+  height: 15vh; // ou ce que tu veux pour le catalogue
+  background-color: #ce2d2d;
 }

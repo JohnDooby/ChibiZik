@@ -1,5 +1,41 @@
-.chibi {
+.scene-chibi {
   position: absolute;
-  font-size: 2rem;
+  width: 8%;   /* 8% de la largeur de la scène */
+  height: auto; /* garde l'aspect ratio */
+  font-size: 4rem; /* optionnel, juste si tu utilises emoji */
   cursor: grab;
+}
+
+/* bouton caché par défaut */
+.scene-chibi .remove-btn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+/* apparition au survol */
+.scene-chibi:hover .remove-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* mobile : pas de hover */
+@media (hover: none) {
+  .scene-chibi .remove-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }

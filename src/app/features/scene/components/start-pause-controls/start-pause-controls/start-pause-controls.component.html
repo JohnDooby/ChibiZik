@@ -1,4 +1,5 @@
 <div class="controls">
-    <button>Start</button>
-    <button>Pause</button>
+    <button (click)="sceneService.startScene()">▶️ Start</button>
+    <button (click)="sceneService.pauseScene()">⏸ Pause</button>
+    <button (click)="sceneService.clearScene()">⏹ Clear</button>
 </div>

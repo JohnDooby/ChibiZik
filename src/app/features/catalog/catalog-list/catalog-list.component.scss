@@ -1,14 +1,38 @@
+.catalog-wrapper {
+  position: relative;
+  height: 100%;
+}
+
 .catalog {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;     // on veut tous les chibis sur une seule ligne
   gap: 10px;
-  padding: 10px;
-  background-color: #f8f8f8;
-  height: 150px;
+  padding: 0;
+  height: 100%;       // hauteur totale de la liste
   overflow-x: auto;
-  border-top: 1px solid #ccc;
+  background-color: #f0f0f0;
 
   .chibi-wrapper {
     flex: 0 0 auto;
   }
 }
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 100px;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 10;
+  border-radius: 4px;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.scroll-btn.left { left: 0; }
+.scroll-btn.right { right: 0; }

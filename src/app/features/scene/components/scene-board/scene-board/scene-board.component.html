@@ -1,3 +1,11 @@
-<div class="scene-board">
-  <app-chibi-item *ngFor="let chibi of chibis"></app-chibi-item>
+<div 
+  class="scene-board" 
+  (dragover)="onDragOver($event)" 
+  (drop)="onDrop($event)">
+  <scene-chibi-item  class="scene-chibi"
+    *ngFor="let chibi of sceneService.chibisOnScene"
+    [chibi]="chibi"
+    [style.left.px]="sceneService.getChibiPosition(chibi).x"
+    [style.top.px]="sceneService.getChibiPosition(chibi).y">
+  </scene-chibi-item>
 </div>

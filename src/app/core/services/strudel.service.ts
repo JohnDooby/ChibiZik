@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { initStrudel, evaluate, hush, samples, getAudioContext } from '@strudel/web';
 
-/**
- * Service de gestion de Strudel
- */
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root',
+})
 export class StrudelService {
   // Indique si le service a été initialisé
   private isInitialized = false;
@@ -12,10 +11,10 @@ export class StrudelService {
   /** Initialise Strudel
    * @returns Promise<void>
    */
-  async initialize() {
+  initialize() {
     if (this.isInitialized) return;
     try {
-      await initStrudel();
+      initStrudel();
 
       samples('github:tidalcycles/dirt-samples');
 
@@ -23,6 +22,10 @@ export class StrudelService {
     } catch (err) {
       console.error('Erreur boot:', err);
     }
+  }
+
+  get initialized(): boolean {
+    return this.isInitialized;
   }
 
   /** Joue un code Strudel
@@ -41,4 +44,5 @@ export class StrudelService {
   stop(){
     hush();
   }
+  
 }

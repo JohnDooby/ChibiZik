@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SceneService } from '../../../../../core/services/scene.service';
 
 @Component({
   selector: 'app-start-pause-controls',
@@ -8,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class StartPauseControlsComponent {
 
+  constructor(public sceneService: SceneService) { }
 }

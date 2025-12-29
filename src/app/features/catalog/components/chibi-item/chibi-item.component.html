@@ -1,3 +1,7 @@
-<div class="chibi" [style.background-color]="chibi.couleur">
+<div 
+    class="chibi" 
+    [class.disabled]="isDisabled"
+    draggable="true"
+    (dragstart)="onDragStart($event)">
   {{ chibi.emoji }}
 </div>

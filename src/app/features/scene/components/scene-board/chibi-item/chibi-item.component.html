@@ -1,3 +1,11 @@
-<div class="chibi">
+<div class="scene-chibi"
+    draggable="true"
+  (dragstart)="onDragStart($event, chibi!)">
+    <div
+        class="remove-btn"
+        (click)="removeChibi($event)"
+        title="Retirer le chibi" >
+    ✖
+  </div>
   {{ chibi?.emoji || '🐱' }}
 </div>

@@ -2,4 +2,17 @@
   width: 100%;
   height: 100%;
   position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Chibis déposés sur la scène */
+.scene-chibi {
+  position: absolute;                    // indispensable pour left/top
+  font-size: clamp(2rem, 5vw, 6rem);    // taille responsive
+  cursor: grab;                          // indique le drag
+  user-select: none;                      // empêche la sélection accidentelle
+  pointer-events: auto;                   // permet drag / click
+  touch-action: none;                     // nécessaire pour drag mobile
+  transition: left 0.1s, top 0.1s;       // effet smooth lors du drag
 }
