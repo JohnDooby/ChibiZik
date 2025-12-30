@@ -4,8 +4,8 @@ export const CHIBI_CATALOG: Chibi[] = [
   // --- SECTION RYTHMIQUE (STACK) ---
   { 
     id: 's1', 
-    slug: 'heavy-kick', 
-    nom: 'Heavy Kick', 
+    slug: 'Akane', 
+    nom: 'Akane', 
     emoji: '🦶', 
     couleur: '#FF0000', 
     code: 's("bd:0 ~ bd:0 [bd:0 bd:0]")', 
@@ -14,8 +14,8 @@ export const CHIBI_CATALOG: Chibi[] = [
   },
   { 
     id: 's2', 
-    slug: 'snappy-hats', 
-    nom: 'Snappy Hats', 
+    slug: 'Chika', 
+    nom: 'Chika', 
     emoji: '💥', 
     couleur: '#FFD700', 
     code: 's("[~ hh:0] [~ hh:0] [~ hh:0] ~")', 
@@ -24,8 +24,8 @@ export const CHIBI_CATALOG: Chibi[] = [
   },
   { 
     id: 's3', 
-    slug: 'cobra-snare', 
-    nom: 'Cobra Snare', 
+    slug: 'Riku', 
+    nom: 'Riku', 
     emoji: '🐍', 
     couleur: '#32CD32', 
     code: 's("~ sn:1 ~ [~ ~ ho:1 ~ ]")', 
@@ -34,8 +34,8 @@ export const CHIBI_CATALOG: Chibi[] = [
   },
   { 
     id: 's4', 
-    slug: 'final-crash', 
-    nom: 'Final Crash', 
+    slug: 'Kira', 
+    nom: 'Kira', 
     emoji: '🧨', 
     couleur: '#FF4500', 
     code: 's("~ ~ ~ [~ cr:5]")', 
@@ -46,8 +46,8 @@ export const CHIBI_CATALOG: Chibi[] = [
   // --- SECTION MÉLODIQUE (STACK) ---
   { 
     id: 's5', 
-    slug: 'deep-pad', 
-    nom: 'Deep Pad', 
+    slug: 'Sumire', 
+    nom: 'Sumire', 
     emoji: '🌫️', 
     couleur: '#4B0082', 
     code: 'note("<[0 ~ ~ ~] [0 ~ [~ 4] [~ 7]] 8*4 5*4>").scale("D:minor").sound("arpy:0").lpf(200).release(0.1)', 
@@ -56,8 +56,8 @@ export const CHIBI_CATALOG: Chibi[] = [
   },
   { 
     id: 's6', 
-    slug: 'funk-engine', 
-    nom: 'Funk Engine', 
+    slug: 'Nana', 
+    nom: 'Nana', 
     emoji: '🎸', 
     couleur: '#1E90FF', 
     code: 'note("<[e1 c1 ~ ~ e1 e1 ~ ~] [e1 c1 ~ ~ e1 g1 ~ ~] [a1 e1 ~ ~ a1 a1 ~ ~] [f1 a1 ~ ~ f1 a1 ~ ~]>").scale("D:minor").sound("arpy:0").sustain(2).decay(10).delay(".05").room(0.5)', 
@@ -66,8 +66,8 @@ export const CHIBI_CATALOG: Chibi[] = [
   },
   { 
     id: 's7', 
-    slug: 'neon-lead', 
-    nom: 'Neon Lead', 
+    slug: 'Rei', 
+    nom: 'Rei', 
     emoji: '✨', 
     couleur: '#FF00FF', 
     code: 'note("[~ ~ g4 b4 ~ a4 g4 ~ ~ e4 g4 ~ b4 a4 g4 e4]/4").sound("arpy:0").clip(0.3).room(1).gain("0.7 0.9 0.6 0.8")', 
