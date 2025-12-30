@@ -18,6 +18,10 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": {
+              "base": "dist/chibizik",
+              "browser": ""
+            },
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
