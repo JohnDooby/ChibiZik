@@ -1,41 +1,95 @@
 .scene-chibi {
   position: absolute;
-  width: 8%;   /* 8% de la largeur de la scène */
-  height: auto; /* garde l'aspect ratio */
-  font-size: 4rem; /* optionnel, juste si tu utilises emoji */
+  width: 8%;
+  height: auto;
+  font-size: 4rem;
   cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: chibi-bounce 1s ease-in-out infinite;
+  animation-play-state: paused;
+
+  // Style commun pour les boutons d'action
+  .remove-btn, .mute-btn {
+    position: absolute;
+    width: 22px; // Légèrement plus grand pour faciliter le clic
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    // État caché par défaut
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.15s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      background: #000;
+    }
+  }
+
+  // Positionnement spécifique
+  .remove-btn {
+    top: -8px;
+    right: -8px;
+    color: #ff4d4d; // Rouge pour la suppression
+  }
+
+  .mute-btn {
+    top: 20px; // Placé en dessous du bouton remove
+    right: -8px;
+    font-size: 14px;
+  }
+
+  // Apparition au survol du Chibi
+  &:hover {
+    .remove-btn, .mute-btn {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
 }
 
-/* bouton caché par défaut */
-.scene-chibi .remove-btn {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  font-size: 12px;
-  line-height: 18px;
-  text-align: center;
-  cursor: pointer;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-}
-
-/* apparition au survol */
-.scene-chibi:hover .remove-btn {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* mobile : pas de hover */
+/* Gestion du Mobile (affichage permanent) */
 @media (hover: none) {
-  .scene-chibi .remove-btn {
+  .scene-chibi .remove-btn, 
+  .scene-chibi .mute-btn {
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+.chibi-img {
+  padding: 0;
+  margin: 0;
+  width: 15vw !important;  /* Laisse un peu de marge dans le cadre */
+  height: 15vh !important;
+  object-fit: contain; /* Garde les proportions sans couper le personnage */
+}
+
+@keyframes chibi-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* Hauteur du saut */
+  }
+}
+
+/* On active l'animation uniquement quand la musique joue */
+.scene-chibi.is-playing {
+  animation-play-state: running;
+}
+
+/* Si le chibi est mute, il s'arrête de sauter même si la musique joue */
+.scene-chibi.is-muted {
+  animation-play-state: paused !important;
+  filter: grayscale(100%) brightness(0.8);
 }

@@ -1,5 +1,11 @@
 <div class="controls">
-    <button (click)="sceneService.startScene()">▶️ Start</button>
-    <button (click)="sceneService.pauseScene()">⏸ Pause</button>
-    <button (click)="sceneService.clearScene()">⏹ Clear</button>
+    <button (click)="sceneService.startScene()" class="shake-element">
+        <img src="assets/images/start.png">
+    </button>
+    <button (click)="sceneService.pauseScene()" class="shake-element">
+        <img src="assets/images/pause.png">
+    </button>
+    <button (click)="sceneService.clearScene()" class="shake-element">
+        <img src="assets/images/clear.png">
+    </button>
 </div>

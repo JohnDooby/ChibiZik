@@ -2,6 +2,7 @@
   height: 100%;
   aspect-ratio: 1 / 1; 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
@@ -9,6 +10,7 @@
   cursor: grab;
   flex: 0 0 auto;    
   font-size: 4rem; /* optionnel, juste si tu utilises emoji */
+  background-color: transparent;
 }
 
 .chibi.disabled {
@@ -16,4 +18,19 @@
   pointer-events: none;   // empêche tout clic / drag
   cursor: not-allowed;    // indique visuellement que c'est désactivé
   filter: grayscale(80%); // optionnel, effet visuel supplémentaire
+}
+
+.chibi-name {
+  font-weight: bold;
+  font-family: 'Arial', sans-serif; /* Ou ta police personnalisée */
+  font-size: 1rem;
+  text-transform: capitalize;     /* Propre pour les noms */
+}
+
+.chibi-img {
+  padding: 0;
+  margin: 0;
+  width: 80%;  /* Laisse un peu de marge dans le cadre */
+  height: 80%;
+  object-fit: contain; /* Garde les proportions sans couper le personnage */
 }

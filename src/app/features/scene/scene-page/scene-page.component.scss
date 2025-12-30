@@ -9,7 +9,7 @@
 .scene-container {
   flex: 1;  // prend tout l’espace restant
   position: relative;
-  background-color: #f0f0f0;
+  background-color: transparent;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -17,5 +17,5 @@
 
 .catalog-container {
   height: 15vh; // ou ce que tu veux pour le catalogue
-  background-color: #ce2d2d;
+  background-color: black;
 }

@@ -18,6 +18,8 @@ export class SampleExplorerPageComponent {
 
   searchTerm: string = '';
 
+  testPattern: string = '';
+
   constructor(private strudel: StrudelService) {}
 
   selectFolder(folder: string) {
@@ -54,12 +56,29 @@ export class SampleExplorerPageComponent {
 
   stopSound(){
     if(this.isPlaying)
-      this.stopSound();
+      this.strudel.stop();
+
+    this.isPlaying = false;
   }
 
   copyCode(folder: string, index: number) {
     const code = `s("${folder}:${index}")`;
     navigator.clipboard.writeText(code);
     // Optionnel: ajouter une petite notification "Copié !"
+  }
+
+  runPattern() {
+    if(this.isPlaying)
+      this.stopSound();
+    
+    this.strudel.play(this.testPattern);
+    this.isPlaying = true;
+  }
+
+  stopPattern() {
+    if(this.isPlaying)
+      this.strudel.stop();
+
+    this.isPlaying = false;
   }
 }

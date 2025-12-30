@@ -26,15 +26,35 @@
       <h3>Files in {{ selectedFolder }}</h3>
       <div class="file-grid">
         <button *ngFor="let file of samplesMap[selectedFolder]; let i = index" 
-                (click)="playSound(selectedFolder, i)"
+                
                 class="sound-btn">
           <span>{{ i }}</span>
           <small>{{ getFileName(file) }}</small>
           <code>s("{{ selectedFolder }}:{{ i }}")</code>
-          <button *ngIf="!isPlaying">▶</button>
-          <button *ngIf="isPlaying" >⏹</button>
+          <button *ngIf="!isPlaying" (click)="playSound(selectedFolder, i)">▶</button>
+          <button *ngIf="isPlaying" (click)="stopSound()">⏹</button>
           <button (click)="copyCode(selectedFolder, i)">Cliquez pour copier</button>
         </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-footer">
+    <div class="footer-header">
+      <span>🛠️ Pattern Tester</span>
+      <small>Collez vos codes s("...") ici pour tester des séquences</small>
+    </div>
+    
+    <div class="footer-controls">
+      <textarea 
+        [(ngModel)]="testPattern" 
+        placeholder="Entrez votre pattern Strudel ici..."
+        spellcheck="false">
+      </textarea>
+      
+      <div class="button-group">
+        <button *ngIf="!isPlaying" class="run-btn" (click)='runPattern()' [disabled]="isPlaying">▶ RUN</button>
+        <button *ngIf="isPlaying" class="stop-btn" (click)='stopPattern()' [disabled]="!isPlaying">⏹ STOP</button>
       </div>
     </div>
   </div>

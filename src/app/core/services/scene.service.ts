@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Chibi } from '../models/chibi';
 import { StrudelService } from './strudel.service';
+import { SceneChibi } from '../models/sceneChibi';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SceneService {
   // Liste des chibis actuellement sur la scène
-  chibisOnScene: Chibi[] = [];
+  chibisOnScene: SceneChibi[] = [];
 
   // Chibi actuellement en cours de drag
-  draggedChibi?: Chibi;
+  draggedChibi?: SceneChibi;
 
   // État de la lecture de la scène
   isPlaying = false;
@@ -28,8 +29,9 @@ export class SceneService {
   /**
    * Permet d'ajouter un chibi à la scène
    */
-  addChibi(chibi: Chibi) {
+  addChibi(chibi: SceneChibi) {
     if (!this.chibisOnScene.includes(chibi)) {
+      chibi.delay = Math.random() * -0.5;
       this.chibisOnScene.push(chibi);
       if (this.isPlaying) 
         this.playChibis();
@@ -39,8 +41,8 @@ export class SceneService {
   /**
    * Permet de retirer un chibi de la scène
    */
-  removeChibi(chibi: Chibi) {
-    this.chibisOnScene = this.chibisOnScene.filter(c => c !== chibi);
+  removeChibi(chibi: SceneChibi) {
+    this.chibisOnScene = this.chibisOnScene.filter(c => c.id != chibi.id);
     if (this.isPlaying) 
       this.playChibis();
   }
@@ -82,7 +84,7 @@ export class SceneService {
     if (this.chibisOnScene.length === 0) 
       return '';
     
-    const codes = this.chibisOnScene.map(c => c.code);
+    const codes = this.chibisOnScene.filter(c=>!c.isMuted).map(c => c.code);
     
     console.log("Combined codes:", codes);
 
@@ -96,7 +98,7 @@ export class SceneService {
    * @param x La nouvelle position X
    * @param y La nouvelle position Y
    */
-  setChibiPosition(chibi: Chibi, x: number, y: number) {
+  setChibiPosition(chibi: SceneChibi, x: number, y: number) {
     this.chibiPositions.set(chibi.id, { x, y });
   }
 
@@ -104,8 +106,18 @@ export class SceneService {
    * Permet d'obtenir la position d'un chibi dans la scène
    * @param chibi Chibi dont on veut la position
    */
-  getChibiPosition(chibi: Chibi): { x: number; y: number } {
+  getChibiPosition(chibi: SceneChibi): { x: number; y: number } {
     return this.chibiPositions.get(chibi.id) || { x: 0, y: 0 };
+  }
+
+  muteChibi(chibi:SceneChibi){
+    chibi.isMuted = true;
+    this.playChibis();
+  }
+   
+  unmuteChibi(chibi:SceneChibi){
+    chibi.isMuted = false;
+    this.playChibis();
   }
 
   //----------- Méthodes privées -----------
@@ -120,4 +132,5 @@ export class SceneService {
     if (code) 
       this.strudelService.play(code);
   }
+
 }

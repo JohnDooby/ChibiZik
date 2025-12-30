@@ -5,15 +5,19 @@
   align-items: center;
   height: 100vh;
   text-align: center;
+  background-color: black;
 
   .logo {
-    width: 150px;
+    width: 80vw;
     height: auto;
     margin-bottom: 20px;
   }
 
   button {
-    margin-top: 20px;
+    position: absolute;
+    top:90vh;
+    left:calc(100vw / 2 - 150px/2);
+    width: 150;
     padding: 10px 20px;
     font-size: 1.2rem;
     cursor: pointer;

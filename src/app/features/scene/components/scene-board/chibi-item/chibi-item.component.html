@@ -1,4 +1,7 @@
-<div class="scene-chibi"
+<div class="scene-chibi shake-element"
+  [class.is-playing]="sceneService.isPlaying"
+  [class.is-muted]="chibi!.isMuted"
+  [style.animation-delay]="chibi!.delay + 's'"
     draggable="true"
   (dragstart)="onDragStart($event, chibi!)">
     <div
@@ -7,5 +10,17 @@
         title="Retirer le chibi" >
     ✖
   </div>
-  {{ chibi?.emoji || '🐱' }}
+    <div *ngIf="!chibi!.isMuted"
+        class="mute-btn"
+        (click)="muteChibi($event)"
+        title="Faire taire le chibi" >
+    🔇
+  </div>
+    <div *ngIf="chibi!.isMuted"
+      class="mute-btn"
+      (click)="unmuteChibi($event)"
+      title="Faire jouer le chibi" >
+    🔊
+  </div>
+  <img src="{{chibi?.imageUrl}}" class="chibi-img">
 </div>

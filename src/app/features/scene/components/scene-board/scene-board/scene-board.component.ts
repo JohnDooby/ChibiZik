@@ -4,6 +4,7 @@ import { ChibiItemComponent } from "../chibi-item/chibi-item.component";
 import { CommonModule } from '@angular/common';
 import { SceneService } from '../../../../../core/services/scene.service';
 import { CatalogService } from '../../../../../core/services/catalog.service';
+import { SceneChibi } from '../../../../../core/models/sceneChibi';
 
 @Component({
   selector: 'app-scene-board',
@@ -14,7 +15,7 @@ import { CatalogService } from '../../../../../core/services/catalog.service';
 export class SceneBoardComponent implements OnInit {
 
   // Liste des chibis disposés sur le board
-  chibis : Chibi[] = [];
+  chibis : SceneChibi[] = [];
 
   /**
    * Constructeur du composant
@@ -55,13 +56,13 @@ export class SceneBoardComponent implements OnInit {
 
     if (!chibi) return;
 
-    if (!this.sceneService.chibisOnScene.includes(chibi)) {
-      this.sceneService.addChibi(chibi);
+    if (!this.sceneService.chibisOnScene.includes(chibi as SceneChibi)) {
+      this.sceneService.addChibi(chibi as SceneChibi);
     } 
 
     const sceneRect = (event.currentTarget as HTMLElement).getBoundingClientRect();
     const x = event.clientX - sceneRect.left - offsetX;
     const y = event.clientY - sceneRect.top - offsetY;
-    this.sceneService.setChibiPosition(chibi, x, y);
+    this.sceneService.setChibiPosition(chibi as SceneChibi, x, y);
   }
 }

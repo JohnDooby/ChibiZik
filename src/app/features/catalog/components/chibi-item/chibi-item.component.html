@@ -1,7 +1,9 @@
-<div 
-    class="chibi" 
-    [class.disabled]="isDisabled"
-    draggable="true"
-    (dragstart)="onDragStart($event)">
-  {{ chibi.emoji }}
+<div class="chibi" [class.disabled]="isDisabled" draggable="true" (dragstart)="onDragStart($event)">
+
+    <img [src]="chibi.imageUrl" [alt]="chibi.nom" class="chibi-img">
+
+
+  <span class="chibi-name" [style.color]="chibi.couleur">
+    {{ chibi.nom }}
+  </span>
 </div>

@@ -9,4 +9,5 @@ export interface Chibi {
     code: string; // Son ADN Strudel
     couleur: string;// Couleur associée au Chibi
     category:string;// Catégorie du Chibi
+    imageUrl:string;//image du chibi
 }
