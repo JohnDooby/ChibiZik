@@ -10,6 +10,7 @@
   padding: 0;
   height: 100%;       // hauteur totale de la liste
   overflow-x: auto;
+  overflow-y: hidden;  /* Interdit le scroll vertical */
   background-color: transparent;
 
   .chibi-wrapper {
