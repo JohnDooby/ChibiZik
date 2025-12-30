@@ -2,6 +2,9 @@
 <div class="catalog-wrapper">        
     <button class="scroll-btn left" (click)="scrollLeft()" draggable="false">&#9664;</button>
     <div class="catalog" #catalog>
+        <div class="chibi-wrapper">
+            <app-adsense></app-adsense>
+        </div>
         <div *ngFor="let chibi of chibis" class="chibi-wrapper">
             <app-chibi-item [chibi]="chibi"  draggable="true" [isDisabled]="isChibiDisabled(chibi)" ></app-chibi-item>
         </div>

@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { ChibiItemComponent } from "../components/chibi-item/chibi-item.component";
 import { CatalogService } from '../../../core/services/catalog.service';
 import { SceneService } from '../../../core/services/scene.service';
+import { AdsenseComponent } from "../../../shared/components/adsense/adsense.component";
 
 @Component({
   selector: 'app-catalog-list',
-  imports: [CommonModule, ChibiItemComponent],
+  imports: [CommonModule, ChibiItemComponent, AdsenseComponent],
   templateUrl: './catalog-list.component.html',
   styleUrl: './catalog-list.component.scss',
 })
