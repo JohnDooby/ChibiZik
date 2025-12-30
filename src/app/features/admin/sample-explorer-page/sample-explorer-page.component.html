@@ -1,0 +1,41 @@
+<div class="explorer-container">
+  <h2>Browse Local Samples</h2>
+  
+  <div class="layout">
+    <div class="sidebar">
+      <h3>Categories</h3>
+      <div class="search-box">
+        <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        placeholder="Rechercher un dossier..."
+        class="search-input"
+        >
+        <span class="count">{{ filteredFolders.length }} / {{ folderNames.length }}</span>
+    </div>
+      <ul>
+        <li *ngFor="let folder of filteredFolders" 
+            (click)="selectFolder(folder)"
+            [class.active]="selectedFolder === folder">
+          {{ folder }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="content" *ngIf="selectedFolder">
+      <h3>Files in {{ selectedFolder }}</h3>
+      <div class="file-grid">
+        <button *ngFor="let file of samplesMap[selectedFolder]; let i = index" 
+                (click)="playSound(selectedFolder, i)"
+                class="sound-btn">
+          <span>{{ i }}</span>
+          <small>{{ getFileName(file) }}</small>
+          <code>s("{{ selectedFolder }}:{{ i }}")</code>
+          <button *ngIf="!isPlaying">▶</button>
+          <button *ngIf="isPlaying" >⏹</button>
+          <button (click)="copyCode(selectedFolder, i)">Cliquez pour copier</button>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

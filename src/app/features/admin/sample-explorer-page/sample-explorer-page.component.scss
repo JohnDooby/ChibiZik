@@ -1,0 +1,160 @@
+/* Conteneur principal qui bloque la hauteur à l'écran */
+.explorer-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #121212; /* Fond sombre pro */
+  color: #e0e0e0;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  h2 { margin-top: 0; color: #ff4500; font-family: sans-serif; }
+}
+
+/* Le layout divise l'espace en deux colonnes */
+.layout {
+  display: flex;
+  flex: 1;
+  min-height: 0; /* Obligatoire pour activer le scroll interne */
+  gap: 24px;
+}
+
+/* --- SIDEBAR (Liste de gauche) --- */
+.sidebar {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 10px 0;
+
+  h3 { padding: 0 15px; font-size: 1rem; color: #888; text-transform: uppercase; }
+
+  ul {
+    flex: 1;
+    overflow-y: auto; /* Scroll indépendant */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 10px 15px;
+      cursor: pointer; /* Curseur main */
+      transition: all 0.2s;
+      font-family: monospace;
+      font-size: 0.9rem;
+
+      &:hover {
+        background: #333; /* Effet au survol */
+        color: #ff4500;
+      }
+
+      &.active {
+        background: #ff4500;
+        color: white;
+        border-left: 4px solid white;
+      }
+    }
+  }
+}
+
+/* --- CONTENT (Grille de droite) --- */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  h3 { margin-top: 0; }
+
+  /* La grille qui ne prend pas tout l'écran */
+  .file-grid {
+    flex: 1;
+    overflow-y: auto; /* Scroll indépendant */
+    display: grid;
+    /* On limite la taille des colonnes entre 150px et 250px */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    padding-right: 10px;
+    align-content: start; /* Évite que les boites s'étirent verticalement */
+  }
+}
+
+/* --- LES CARTES (sound-btn) --- */
+.sound-btn {
+  background: #252525;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.1s;
+
+  &:hover { border-color: #555; background: #2a2a2a; }
+
+  span { color: #ff4500; font-weight: bold; font-size: 1.1rem; }
+  
+  small { 
+    color: #aaa; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; /* Coupe le nom du fichier si trop long */
+  }
+
+  code {
+    background: #000;
+    color: #00ff00;
+    padding: 4px;
+    font-size: 0.75rem;
+    border-radius: 3px;
+    text-align: center;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 0.8rem;
+    background: #444;
+    color: white;
+    &:hover { background: #555; }
+    
+    /* Bouton copier spécifique */
+    &:last-child {
+      background: transparent;
+      border: 1px solid #444;
+      color: #888;
+      &:hover { border-color: #ff4500; color: #ff4500; }
+    }
+  }
+}
+
+.search-box {
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .search-input {
+    background: #121212;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+
+    &:focus {
+      outline: none;
+      border-color: #ff4500;
+    }
+  }
+
+  .count {
+    font-size: 0.7rem;
+    color: #666;
+    text-align: right;
+  }
+}

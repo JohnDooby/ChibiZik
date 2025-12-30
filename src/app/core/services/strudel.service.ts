@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { initStrudel, evaluate, hush, samples, getAudioContext } from '@strudel/web';
+import { SAMPLE_MAP } from '../../../assets/sounds/Dirt-Samples-master/sample_map';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class StrudelService {
     try {
       initStrudel();
 
-      samples('github:tidalcycles/dirt-samples');
+      samples(SAMPLE_MAP);
 
       this.isInitialized = true;
     } catch (err) {
