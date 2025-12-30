@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SceneService } from '../../../../../core/services/scene.service';
+import { Navigation, Router } from '@angular/router';
 
 @Component({
   selector: 'app-start-pause-controls',
@@ -9,5 +10,9 @@ import { SceneService } from '../../../../../core/services/scene.service';
 })
 export class StartPauseControlsComponent {
 
-  constructor(public sceneService: SceneService) { }
+  constructor(public sceneService: SceneService,private router:Router) { }
+
+  gotoHome(){
+    this.router.navigate(['/']);
+  }
 }
