@@ -31,7 +31,8 @@
             "assets": [
               "src/favicon.ico",
                 "src/assets",
-                "src/ads.txt"
+                "src/ads.txt",
+                "src/404.html"
             ],
             "styles": [
               "src/styles.scss"
