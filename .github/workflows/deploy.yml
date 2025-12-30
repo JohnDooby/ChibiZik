@@ -24,7 +24,7 @@ jobs:
 
       - name: Build 🏗️
         # REMPLACE 'chibizik' par le nom de ton repo GitHub ci-dessous
-        run: npx ng build --configuration production --base-href /chibizik/
+        run: npx ng build --configuration production --base-href /ChibiZik/
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
