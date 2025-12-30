@@ -1,4 +1,25 @@
 <div class="splash-screen">
   <img src="assets/images/logo.jpg" alt="ChibiZik Logo" class="logo">
-  <button (click)="startScene()">Commencer</button>
+  <button (click)="startScene()" class="btn-start">Commencer</button>
+  <button (click)="toggleCredits()" class="btn-credit">Crédits</button>
 </div>
+
+<div class="modal-overlay" *ngIf="isCreditsOpen" (click)="toggleCredits()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>ChibiZik (七音)</h3>
+        <h3>Famille O'Hare</h3>
+        <span class="close-icon" (click)="toggleCredits()">×</span>
+      </div>
+      
+      <div class="modal-body">
+        <p><strong>Dev & Rhythm:</strong> Le papa (JohnDooby)</p>
+        <p><strong>Character Design:</strong> La Grande Fille (Ayo)</p>
+        <p><strong>Tempo:</strong> 120 BPM</p>
+        
+        <div class="chibi-signature">
+          <span>♫ ちび ChibiZIK ♫</span>
+        </div>
+      </div>
+    </div>
+  </div>
